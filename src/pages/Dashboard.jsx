@@ -1,19 +1,32 @@
 import React from 'react';
 import Card from '../components/UI/Card';
 import { useFinance } from '../context/FinanceContext';
+import { useStatement } from '../context/StatementContext';
 import IncomeChart from '../components/Dashboard/IncomeChart';
 import BudgetChart from '../components/Dashboard/BudgetChart';
 import RecentTransactions from '../components/Dashboard/RecentTransactions';
 import SpendingLimitWidget from '../components/Dashboard/SpendingLimitWidget';
 import MyCardsWidget from '../components/Dashboard/MyCardsWidget';
+import StatementUpload from '../components/Dashboard/StatementUpload';
+import SpendingAnalytics from '../components/Dashboard/SpendingAnalytics';
+import '../styles/statement.css';
 
 const Dashboard = () => {
     const { calcDashboardMetrics } = useFinance();
+    const { analytics } = useStatement();
     const metrics = calcDashboardMetrics();
+
+    // If statement analytics are loaded, show the analytics view
+    if (analytics) {
+        return <SpendingAnalytics />;
+    }
 
     return (
         <div className="page-container">
             <h1 style={{ marginBottom: '2rem' }}>Dashboard</h1>
+
+            {/* Statement Upload Banner */}
+            <StatementUpload />
 
             {/* Key Metrics Section */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>

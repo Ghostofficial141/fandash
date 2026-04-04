@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { mockUser, mockTransactions, mockCards, mockGoals, mockBudget } from '../utils/mockData';
 
@@ -10,6 +10,15 @@ export function FinanceProvider({ children }) {
     const [cards, setCards] = useLocalStorage('jm_finance_cards', mockCards);
     const [goals, setGoals] = useLocalStorage('jm_finance_goals', mockGoals);
     const [budgets, setBudgets] = useLocalStorage('jm_finance_budgets', mockBudget);
+    const [isDark, setIsDark] = useLocalStorage('jm_finance_dark_mode', false);
+
+    useEffect(() => {
+        if (isDark) {
+            document.documentElement.classList.add('dark-mode');
+        } else {
+            document.documentElement.classList.remove('dark-mode');
+        }
+    }, [isDark]);
 
     // Helper functions for transactions
     const addTransaction = (transaction) => {
@@ -92,7 +101,9 @@ export function FinanceProvider({ children }) {
         setGoals,
         budgets,
         setBudgets,
-        calcDashboardMetrics
+        calcDashboardMetrics,
+        isDark,
+        setIsDark
     };
 
     return (

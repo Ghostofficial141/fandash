@@ -5,7 +5,7 @@
   --jm-dark-blue: #2E3A8C;
   --jm-light-blue: #4A5FD9;
   --jm-navy: #1A2254;
-  
+
   /* Neutral Colors */
   --jm-white: #FFFFFF;
   --jm-light-gray: #F5F7FA;
@@ -14,12 +14,29 @@
 
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  
+
   /* UI Elements */
   --border-radius-sm: 8px;
   --border-radius-md: 12px;
   --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
   --border-input: 1px solid #E0E0E0;
+}
+
+.dark-mode {
+  --jm-light-gray: #1A1A1A;
+  --jm-white: #2C2C2C;
+  --jm-dark-gray: #E0E0E0;
+  --jm-black: #F5F7FA;
+  --border-input: 1px solid #4A4A4A;
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+  /* Brand color overrides for Dark Mode */
+  --jm-dark-blue: #9D4EDD;
+  /* Vibrant purple */
+  --jm-light-blue: #C77DFF;
+  /* Light purple */
+  --jm-navy: #5A189A;
+  /* Dark purple */
 }
 
 * {
@@ -40,12 +57,38 @@ body {
 }
 
 /* Typography Classes */
-h1 { font-size: 2rem; line-height: 1.2; font-weight: 700; }
-h2 { font-size: 1.5rem; line-height: 1.2; font-weight: 700; color: var(--jm-dark-blue); }
-h3 { font-size: 1.25rem; line-height: 1.2; font-weight: 600; }
-.text-body { font-size: 1rem; color: var(--jm-dark-gray); }
-.text-small { font-size: 0.875rem; }
-.text-caption { font-size: 0.75rem; font-weight: 300; }
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--jm-dark-blue);
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.text-body {
+  font-size: 1rem;
+  color: var(--jm-dark-gray);
+}
+
+.text-small {
+  font-size: 0.875rem;
+}
+
+.text-caption {
+  font-size: 0.75rem;
+  font-weight: 300;
+}
 
 /* Base UI Elements */
 .btn {
@@ -78,7 +121,8 @@ h3 { font-size: 1.25rem; line-height: 1.2; font-weight: 600; }
 }
 
 .btn-secondary:hover {
-  background-color: rgba(74, 95, 217, 0.1); /* light blue tint */
+  background-color: rgba(74, 95, 217, 0.1);
+  /* light blue tint */
 }
 
 .jm-card {

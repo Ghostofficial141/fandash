@@ -4,9 +4,7 @@ import { Search, Bell, Settings, Moon, Sun } from 'lucide-react';
 import { useFinance } from '../../context/FinanceContext';
 
 const Header = () => {
-    const { user } = useFinance();
-    // We can add actual dark mode toggle logic later
-    const [isDark, setIsDark] = React.useState(false);
+    const { user, isDark, setIsDark } = useFinance();
 
     const navLinks = [
         { name: 'Dashboard', path: '/dashboard' },
@@ -54,7 +52,7 @@ const Header = () => {
                             style={{
                                 padding: '0.5rem 1rem 0.5rem 2.2rem',
                                 borderRadius: '8px',
-                                border: '1px solid #E0E0E0',
+                                border: 'var(--border-input)',
                                 backgroundColor: 'var(--jm-light-gray)',
                                 outline: 'none',
                                 width: '200px'
@@ -75,7 +73,7 @@ const Header = () => {
                         <Settings size={20} color="var(--jm-dark-gray)" />
                     </button>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', borderLeft: '1px solid #E0E0E0', paddingLeft: '1.5rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', borderLeft: '1px solid var(--jm-light-gray)', paddingLeft: '1.5rem' }}>
                         <div style={{ textAlign: 'right' }}>
                             <div style={{ fontWeight: '600', fontSize: '0.875rem' }}>{user.name}</div>
                             <div style={{ color: 'var(--jm-dark-gray)', fontSize: '0.75rem' }}>{user.email}</div>
